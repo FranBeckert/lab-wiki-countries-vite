@@ -2,7 +2,7 @@ import { useParams, Link} from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-function CountryDetails() {
+function CountryDetailsPage() {
     const [country, setCountry] = useState();
     const { alpha3Code } = useParams();
     const [fetching, setFetching] = useState(true);
@@ -28,6 +28,8 @@ function CountryDetails() {
         <div className="container">
         <p style={{fontSize: "24px", fontWeight: "bold"}}>Country Details</p>
 
+        <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} alt="{`{country.name.official} flag`}" style={{display:"block", margin:"0 auto 20px auto"}}></img>
+
         <h1>{country.name.official}</h1>
 
 <table className="table">
@@ -40,7 +42,7 @@ function CountryDetails() {
     <tr>
       <td></td>
       <td>
-      {country.area} km
+        {country.area} km
         <sup>2</sup>
       </td>
     </tr>
@@ -62,4 +64,4 @@ function CountryDetails() {
     )
 }
 
-export default CountryDetails;
+export default CountryDetailsPage;
